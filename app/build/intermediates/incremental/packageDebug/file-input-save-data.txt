@@ -1,0 +1,30 @@
+#Internal package file, do not edit.
+#Fri Jul 07 11:38:18 ICT 2017
+2.base=E\:\\AndroidConfiguration\\Project\\assisstant\\GraphicCaroGame\\app\\build\\intermediates\\res\\resources-debug.ap_
+5.file=E\:\\AndroidConfiguration\\Project\\assisstant\\GraphicCaroGame\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable\\lib_cross.png
+5.set=ANDROID_RESOURCE
+3.base=E\:\\AndroidConfiguration\\Project\\assisstant\\GraphicCaroGame\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main
+6.file=E\:\\AndroidConfiguration\\Project\\assisstant\\GraphicCaroGame\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable\\lib_circle.png
+2.set=ANDROID_RESOURCE
+4.base=E\:\\AndroidConfiguration\\Project\\assisstant\\GraphicCaroGame\\app\\build\\intermediates\\res\\resources-debug.ap_
+7.file=E\:\\AndroidConfiguration\\Project\\assisstant\\GraphicCaroGame\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable\\lib_bg.9.png
+7.set=ANDROID_RESOURCE
+count=9
+0.file=E\:\\AndroidConfiguration\\Project\\assisstant\\GraphicCaroGame\\app\\build\\intermediates\\res\\resources-debug.ap_\\AndroidManifest.xml
+5.base=E\:\\AndroidConfiguration\\Project\\assisstant\\GraphicCaroGame\\app\\build\\intermediates\\res\\resources-debug.ap_
+8.file=E\:\\AndroidConfiguration\\Project\\assisstant\\GraphicCaroGame\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\layout\\main.xml
+4.set=ANDROID_RESOURCE
+6.base=E\:\\AndroidConfiguration\\Project\\assisstant\\GraphicCaroGame\\app\\build\\intermediates\\res\\resources-debug.ap_
+1.file=E\:\\AndroidConfiguration\\Project\\assisstant\\GraphicCaroGame\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable\\bg.png
+1.set=ANDROID_RESOURCE
+7.base=E\:\\AndroidConfiguration\\Project\\assisstant\\GraphicCaroGame\\app\\build\\intermediates\\res\\resources-debug.ap_
+2.file=E\:\\AndroidConfiguration\\Project\\assisstant\\GraphicCaroGame\\app\\build\\intermediates\\res\\resources-debug.ap_\\resources.arsc
+6.set=ANDROID_RESOURCE
+0.base=E\:\\AndroidConfiguration\\Project\\assisstant\\GraphicCaroGame\\app\\build\\intermediates\\res\\resources-debug.ap_
+8.base=E\:\\AndroidConfiguration\\Project\\assisstant\\GraphicCaroGame\\app\\build\\intermediates\\res\\resources-debug.ap_
+3.file=E\:\\AndroidConfiguration\\Project\\assisstant\\GraphicCaroGame\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main\\classes.dex
+3.set=DEX
+1.base=E\:\\AndroidConfiguration\\Project\\assisstant\\GraphicCaroGame\\app\\build\\intermediates\\res\\resources-debug.ap_
+4.file=E\:\\AndroidConfiguration\\Project\\assisstant\\GraphicCaroGame\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-hdpi-v4\\ic_launcher.png
+8.set=ANDROID_RESOURCE
+0.set=ANDROID_RESOURCE

@@ -1,0 +1,28 @@
+1. Xét 4 hướng trên và 4 hướng dưới từ ô đang xem xét lượng giá cùng 1 lúc (vòng for 4 lần lặp)
+    - 4 hướng lên và 4 hướng duói xét nguyên tắc giống nhau:
+        + Dừng xét khi gặp ô của đối thủ hoặc chạm biên, hoặc đã xét được liên tiếp 5 ô
+        + Kể cả gặp ô trắng thì vẫn tiếp tục xét
+    - Điểm được tính như sau: bình phương độ dài xét được theo đường thẳng đó, nếu
+        độ dài = 4 thì h = 100*100 còn nếu độ dài = 5 thì h = 200*200
+    - Dùng 1 vòng while với pseudo code như sau:
+        chessBoard(startPoint) = X/O
+        startPoint = new Point(curRow, curCol)
+        do{
+            endPoint = checkSegmentLine(startPoint.x, startPoint.y, dx, dy) // make sure differ in value of startPoint
+            int len = (endPoint.x!=startPoint.x)?Math.abs(endPoint.x-startPoint.x):Math.abs(endPoint.y-startPoint.y)
+            totalPoint (local variable) = len*len
+            if(len==4) totalPoint = totalPoint - len*len + 100*100
+            if(len==5) totalPoint = totalPoint - len*len + 200*200
+            int x = endPoint.x;
+            int y = endPoint.y;
+            while(chessBoard(startPoint)==chessBoard(endPoint) &&
+                endPoint.x!=0 && endPoint.y!=0 && checkInside(endPoint đã xê dịch thêm dx, dy)){
+                x+=dx;
+                y+=dy;
+                if(chessBoard(startPoint)!=chessBoard(endPoint)){
+                    startPoint = new Point(x,y)
+                    break;
+                }
+            }
+            // if can't find new start point <=> reach bound => break;
+        }while (chessBoard(startPoint) != chessBoard(endPoint) && checkInside(startPoint) && checkInside(endPoint))

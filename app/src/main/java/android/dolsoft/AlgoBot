@@ -1,0 +1,87 @@
+class android.dolsoft.Move: constructor() {
+    leftMostChild: android.dolsoft.Move
+    rightMostChild: android.dolsoft.Move
+    rightSibling: android.dolsoft.Move
+    cost: int ??? abundant??? (1000-MAX WIN, 0-MAX WITH DRAW, -1000-MAX LOSE)
+    type: int (MAX-1/MIN-2, NOT_INFO-0)
+    row: int
+    col: int
+}
+
+chessBoard: int[][]
+// chessBoard[i][j] = 0 (cell empty)
+// chessBoard[i][j] = 1 (cell was filled by X - MAX)
+// chessBoard[i][j] = 2 (cell was filled by O - MIN)
+
+List<android.dolsoft.Move> listMove;
+
+@Override
+boolean onTouchListener(){
+    // DOWN and UP action
+    if(curPlayer==MAX) // human
+
+}
+
+// scan cell around cell which were filled (X&O)
+void firstMove(){
+    // human play X
+    android.dolsoft.Move move = new android.dolsoft.Move();
+}
+
+void computerCalculate(){
+
+}
+
+// leaf is node not have child: leftMostChild = null
+int minimax(android.dolsoft.Move move){
+    if(move.leftMostChild == null/* node leaf */) return move.cost
+    int bestValue = (move.type==MAX)?-INFINITY:+INFINITY
+    generateListSubMoveOfCurrentMove(move)
+    android.dolsoft.Move subMove = move.leftMostChild
+    while(subMove!=null){
+        int value = minimax(subMove)
+        bestValue = (move.type==MAX)? max(value, bestValue)
+                                :min(value, bestValue)
+        subMove = subMove.rightSibling
+    }
+    return bestValue
+}
+
+// generate list move from current move (move evaluating)
+// insert one node child after the last of root
+// scope of list move will be generated is 1 cell (lean and straight) - naive
+void generateListSubMoveOfCurrentMove(android.dolsoft.Move curMove){
+    int curRow = curMove.row
+    int curCol = curMove.col
+    List<android.dolsoft.Move> listSubMove = new ArrayList<>()
+    // scan empty cell around curMove(curCell)
+    // check exception curRow-1<0 & curCol-1<0
+    for(int i = curRow-1; i<=curRow + 1; i++){
+        for(int j = curCol-1; j<=curCol + 1; j++){
+            if(chessBoard[i][j]) == 0)
+                int type = (curMove.type==MAX)?MIN:MAX // sub node has type differ in type of root
+                listSubMove.add(new android.dolsoft.Move(null, null, INFINITY, type, i, j))
+        }
+    }
+    // after have list sub move, add this list to tree which has root is curMove
+    for(android.dolsoft.Move mv: listSubMove){
+        if(curMove.leftMostChild == null) curMove.leftMostChild = mv
+        else {
+            curMove.rightMostChild = mv
+        }
+    }
+}
+
+// cut alpha - beta
+int alphaBeta(Move curMove, int alpha, int beta, int depth){
+    if(depth=0||curMove.isLeaf) return getValueOfNodeLeaf(curMove)
+    int best = -INFINITY
+    generateListSubMoveOfCurrentMove(curMove)
+    Move mv = curMove.leftMostChild
+    while(mv!=null && best<beta){
+        if(best>alpha) alpha = best
+        value = -alphaBeta(mv, -beta, -alpha, depth-1)
+        if(value>best) best = value
+    }
+    return best
+}

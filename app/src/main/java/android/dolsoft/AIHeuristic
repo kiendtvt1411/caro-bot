@@ -1,0 +1,86 @@
+                        EVALUATING FUNCTION HEURISTIC
+
+1. Evaluate 1 cell with 8 sub cell around according to recursive algorithm
+
+2. Delegate 1 line: HORIZONTAL line -> then 3 other line use parallel
+    - These case is used by HUMAN (MAX-player), with COM player (MIN), point
+    will be had contrasted value
+    - HUMAN will fill X in one of among cells which have state = 0
+    - Point will be sorted by non-increasing <-> priority decrease from 1 to 7 (1 is max)
+    - These case parallel with hard Bot
+        + 32768*8 point: absolute win
+            {1,1,1,1,1}
+        + 32768 point: make sure win
+            {0,1,1,1,1}
+            {1,0,1,1,1}
+            {1,1,0,1,1}
+        + 4096 point: facilitate to attack
+            {0,0,1,1,1,0}
+            {1,0,1,0,1,0,1} // excellent case
+            {0,1,0,1,1,0}
+        + 512 point: prevent opponent from win the match
+            {0,0,-1,-1,-1,0}
+            {-1,0,-1,0,-1,0,-1}
+            {0,-1,0,-1,-1,0}
+        + 64 point: a bit of facilitate, too easy for opponent to prevent
+            {0,1,1,1,0}
+            {0,0,1,1,1}
+            {0,1,0,1,1}
+            {0,1,1,0,1}
+            {1,0,0,1,1}
+            {1,0,1,0,1}
+        + 8 point: very normal
+            {0,0,1,1,0,0}
+            {0,1,0,1,0,0}
+            {0,1,1,0,0,0}
+            {0,1,0,0,1,0}
+        + 1 point: other wise case (one mark or two mark bad)
+
+3. Has 3 level of Bot (Easy/Normal/Hard) according to depth (alpha beta cut) &
+the priority of those case
+
+4. Example:
+private int[][] matrixAbsoluteWinMAX = {
+            {1,1,1,1,1}
+    };
+
+    private int[][] matrixAbsoluteWinMIN = {
+            {-1,-1,-1,-1,-1}
+    };
+
+    private int[][] matrixWinStateMAX = {
+            {0, 1, 1, 1, 1}, {1, 0, 1, 1, 1}, {1, 1, 0, 1, 1},
+            {1, 1, 1, 1, 0}, {1, 1, 1, 0, 1}
+    };
+    private int[][] matrixWinStateMIN = {
+            {0, -1, -1, -1, -1}, {-1, 0, -1, -1, -1}, {-1, -1, 0, -1, -1},
+            {-1, -1, -1, -1, 0}, {-1, -1, -1, 0, -1}
+    };
+    private int[][] matrixFacilitateAttack = {
+            {0, 0, 1, 1, 1, 0}, {0, 1, 0, 1, 1, 0}, {1, 0, 1, 0, 1, 0, 1},
+            {0, 1, 1, 1, 0, 0}, {0, 1, 1, 0, 1, 0}
+    };
+    private int[][] matrixPreventAttack = {
+            {0, 0, -1, -1, -1, 0}, {0, -1, 0, -1, -1, 0}, {-1, 0, -1, 0, -1, 0, -1},
+            {0, -1, -1, -1, 0, 0}, {0, -1, -1, 0, -1, 0}
+    };
+    private int[][] matrixBitFacilitateMAX = {
+            {0, 1, 1, 1, 0}, {0, 0, 1, 1, 1}, {0, 1, 0, 1, 1},
+            {0, 1, 1, 0, 1}, {1, 0, 0, 1, 1}, {1, 0, 1, 0, 1},
+            {1, 1, 1, 0, 0}, {1, 1, 0, 1, 0}, {1, 0, 1, 1, 0},
+            {1, 1, 0, 0, 1}
+    };
+    private int[][] matrixNormalMAX = {
+            {0, 0, 1, 1, 0, 0}, {0, 1, 0, 1, 0, 0}, {0, 1, 1, 0, 0, 0},
+            {0, 1, 0, 0, 1, 0}, {0, 0, 1, 0, 1, 0}, {0, 0, 0, 1, 1, 0}
+    };
+    private int[][] matrixBitFacilitateMIN = {
+            {0, -1, -1, -1, 0}, {0, 0, -1, -1, -1}, {0, -1, 0, -1, -1},
+            {0, -1, -1, 0, -1}, {-1, 0, 0, -1, -1}, {-1, 0, -1, 0, -1},
+            {-1, -1, -1, 0, 0}, {-1, -1, 0, -1, 0}, {-1, 0, -1, -1, 0},
+            {-1, -1, 0, 0, -1}
+    };
+    private int[][] matrixNormalMIN = {
+            {0, 0, -1, -1, 0, 0}, {0, -1, 0, -1, 0, 0}, {0, -1, -1, 0, 0, 0},
+            {0, -1, 0, 0, -1, 0}, {0, 0, -1, 0, -1, 0}, {0, 0, 0, -1, -1, 0}
+    };
