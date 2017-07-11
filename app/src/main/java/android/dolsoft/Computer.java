@@ -65,8 +65,8 @@ public class Computer {
             curCol = mv.y;
             if (checkInsideOfChessBoard(totalRow, totalCol, curRow - 1, curCol - 1)
                     && checkInsideOfChessBoard(totalRow, totalCol, curRow + 1, curCol + 1))
-                for (int i = curRow - 1; i < curRow + 1; i++) {
-                    for (int j = curCol - 1; j < curCol + 1; j++) {
+                for (int i = curRow - 1; i <= curRow + 1; i++) {
+                    for (int j = curCol - 1; j <= curCol + 1; j++) {
                         if (chessBoard[i][j] == EMPTY_CELL && !markCheck[i][j]) {
                             Move curMove = new Move(null, null, isMaxPlayer, i, j);
                             markCheck[i][j] = true;
@@ -120,7 +120,7 @@ public class Computer {
 
     private int alphaBetaCut(Move curMove, int alpha, int beta, int depth) {
         int currentPlayer = (curMove.isMaxPlayer()) ? PLAYER_MAX : PLAYER_MIN;
-        generateSubListMoveOfCurrentMove(curMove);
+//        generateSubListMoveOfCurrentMove(curMove);
 
         if (depth == 0 || curMove.getLeftMostChild() == null
                 /*&& checkInsideOfChessBoard(totalRow, totalCol, curMove.getRow(), curMove.getCol())*/) {

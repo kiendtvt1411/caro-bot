@@ -111,12 +111,17 @@ public class CalculateHeuristicFake {
             if (i < 5) {
                 String winStateMAX = toString(matrixH.matrixWinStateMAX[i]);
                 matrixStateWinMAX.add(winStateMAX);
-                String winStateMIN = toString(matrixH.matrixWinStateMIN[i]);
-                matrixStateWinMIN.add(winStateMIN);
+
                 String facilitateAttack = toString(matrixH.matrixFacilitateAttack[i]);
                 matrixFaciliateAttack.add(facilitateAttack);
+            }
+            if (i < 6) {
                 String preventAttack = toString(matrixH.matrixPreventAttack[i]);
                 matrixPrevent.add(preventAttack);
+            }
+            if (i < 7) {
+                String winStateMIN = toString(matrixH.matrixWinStateMIN[i]);
+                matrixStateWinMIN.add(winStateMIN);
             }
             if (i < 6) {
                 String normalMAX = toString(matrixH.matrixNormalMAX[i]);
@@ -188,9 +193,9 @@ public class CalculateHeuristicFake {
             if (i < 5 && state.contains(matrixFaciliateAttack.get(i))) return 3;
             if (i < 10 && state.contains(matrixBitFacilitateMAX.get(i))) return 4;
             if (i < 6 && state.contains(matrixNormalMAX.get(i))) return 5;
-            if (i < 1 && state.contains(matrixAbsoluteWinMIN)) return 8;
-            if (i < 5 && state.contains(matrixStateWinMIN.get(i))) return 9;
-            if (i < 5 && state.contains(matrixPrevent.get(i))) return 7;
+            if (i < 1 && state.contains(matrixAbsoluteWinMIN)) return 7;
+            if (i < 6 && state.contains(matrixPrevent.get(i))) return 8;
+            if (i < 7 && state.contains(matrixStateWinMIN.get(i))) return 9;
             if (i < 10 && state.contains(matrixBitFacilitateMIN.get(i))) return 10;
             if (i < 6 && state.contains(matrixNormalMIN.get(i))) return 11;
         }
